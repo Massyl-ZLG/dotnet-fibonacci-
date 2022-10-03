@@ -49,10 +49,6 @@ Generated\ Files/
 TestResult.xml
 nunit-*.xml
 
-# Custom
-/tests/Leonardo.tests/report
-/tests/Leonardo.tests/tools
-
 # Build Results of an ATL Project
 [Dd]ebugPS/
 [Rr]eleasePS/
@@ -61,7 +57,7 @@ dlldata.c
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
-# .NET Core
+# .NET
 project.lock.json
 project.fragment.lock.json
 artifacts/
@@ -456,3 +452,9 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+
+# Custom
+/tests/Leonardo.Tests/report/
+/tests/Leonardo.Tests/tools/
+
