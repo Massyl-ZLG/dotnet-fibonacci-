@@ -16,8 +16,8 @@ var applicationSection = configuration.GetSection("Application");
 var applicationConfig = applicationSection.Get<ApplicationConfig>();
 
 var services = new ServiceCollection();
-services.AddTransient<FibonacciDataContext>();
 services.AddTransient<Fibonacci>();
+services.AddDbContext<FibonacciDataContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 services.AddLogging(configure => configure.AddConsole());
 
 await using var serviceProvider = services.BuildServiceProvider();
