@@ -7,19 +7,14 @@ namespace WebApi.Controllers;
 [Route("[controller]")]
 public class FibonacciController : ControllerBase
 {
-    private readonly ILogger<FibonacciController> _logger;
-    private readonly Fibonacci _fibonacci;
 
-    public FibonacciController(ILogger<FibonacciController> logger, Fibonacci fibonacci)
-    {
-        _logger = logger;
-        _fibonacci = fibonacci; 
-    }
-    
     [HttpPost("Compute")]
-    public async Task<IList<long>> Run(string[] args)
+    public async Task<IList<long>> Run([FromServices] ILogger<FibonacciController> logger,
+        [FromServices] Fibonacci fibonacci,
+        string[] args)
     {
-        return await _fibonacci.RunAsync(args); 
+        logger.LogInformation("test");
+        return await fibonacci.RunAsync(args); 
     }
     
 }
